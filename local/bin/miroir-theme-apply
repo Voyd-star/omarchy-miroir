@@ -10,7 +10,7 @@ COLORS="$CUR/colors.toml"
 val() { grep -E "^$1 " "$COLORS" | head -1 | cut -d'"' -f2; }
 acc=$(val accent); bg=$(val background); fg=$(val foreground); c8=$(val color8)
 
-# 0) Run the Omarchy theme-set hook framework (Discord/Steam/Typora/Spotify/GTK... from colors.toml).
+# 0) Run the Omarchy theme-set hook framework (Discord/Typora/Spotify/GTK... from colors.toml).
 #    Omarchy 4.0 no longer calls it natively, so we trigger it here. On 3.x Omarchy
 #    already runs it via `omarchy-hook theme-set` — re-running it would theme twice.
 omarchy_major="$(omarchy-version 2>/dev/null | grep -oE '[0-9]+' | head -1)"; : "${omarchy_major:=3}"
