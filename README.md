@@ -4,9 +4,14 @@ A theme family for [Omarchy](https://omarchy.org) (violet-dominant, cyan/green a
 blacks) that doesn't stop at the terminal: one `omarchy-theme-set` re-themes Discord, Spotify,
 GTK/Qt apps, tmux, your browser — and even a Razer keyboard.
 
-First theme shipped: **Miroir Hack** (neon hack / scanlines mood). More to come.
+Four themes, one taste profile, four moods:
 
-![Miroir Hack](config/omarchy/themes/miroir-hack/preview.png)
+| | |
+|---|---|
+| **Miroir Hack** — neon hack, scanlines | **Miroir Void** — deep space, nebula |
+| ![Miroir Hack](config/omarchy/themes/miroir-hack/preview.png) | ![Miroir Void](config/omarchy/themes/miroir-void/preview.png) |
+| **Miroir Grimoire** — arcane, serif & gold | **Miroir Shinkai** — painted skies |
+| ![Miroir Grimoire](config/omarchy/themes/miroir-grimoire/preview.png) | ![Miroir Shinkai](config/omarchy/themes/miroir-shinkai/preview.png) |
 
 ## Install
 
@@ -35,7 +40,7 @@ Non-interactive: `bash install.sh --all` (everything) or `bash install.sh --them
 Then:
 
 ```bash
-omarchy-theme-set "Miroir Hack"
+omarchy-theme-set "Miroir Hack"    # or Void / Grimoire / Shinkai
 ```
 
 ## How it works

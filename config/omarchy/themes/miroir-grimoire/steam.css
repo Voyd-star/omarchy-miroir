@@ -1,0 +1,4 @@
+/* Miroir grimoire — safe minimal Steam tint (Millennium).
+   Note: recolors agressifs retirés (ils cassaient des panels Steam). */
+::selection { background: #9d6ee0; color: #14100c; }
+.ScrollbarThumb { background: #4a3d2a !important; }
