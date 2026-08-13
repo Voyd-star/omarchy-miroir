@@ -1,0 +1,10 @@
+[Unit]
+Description=Rotate Omarchy wallpaper every hour
+
+[Timer]
+OnActiveSec=1h
+OnUnitActiveSec=1h
+Persistent=false
+
+[Install]
+WantedBy=timers.target

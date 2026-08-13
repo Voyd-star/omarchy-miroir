@@ -1,0 +1,7 @@
+[Unit]
+Description=Watch Omarchy current theme for changes
+[Path]
+PathModified=%h/.config/omarchy/current/theme.name
+Unit=miroir-theme-apply.service
+[Install]
+WantedBy=default.target

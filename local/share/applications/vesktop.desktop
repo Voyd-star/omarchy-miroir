@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Discord
+Exec=vesktop %U
+Terminal=false
+Type=Application
+Icon=vesktop
+StartupWMClass=vesktop
+GenericName=Internet Messenger
+Categories=Network;
+Keywords=discord;vencord;electron;chat;vesktop;
+MimeType=x-scheme-handler/discord;
+Comment=Discord (Vesktop)

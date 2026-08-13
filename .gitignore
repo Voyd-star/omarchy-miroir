@@ -1,0 +1,5 @@
+# Machine-generated files (regenerated per machine by the hooks — never commit)
+**/current/
+.DS_Store
+*.swp
+*.bak.*

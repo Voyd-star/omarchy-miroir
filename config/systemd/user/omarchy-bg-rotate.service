@@ -1,0 +1,9 @@
+[Unit]
+Description=Rotate Omarchy wallpaper (next background of current theme)
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=oneshot
+KillMode=process
+ExecStart=%h/.local/share/omarchy/bin/omarchy-theme-bg-next

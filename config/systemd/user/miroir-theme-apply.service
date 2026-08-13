@@ -1,0 +1,5 @@
+[Unit]
+Description=Apply miroir extras (Razer keyboard + tmux) on Omarchy theme change
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/miroir-theme-apply
