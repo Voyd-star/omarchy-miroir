@@ -117,7 +117,7 @@ if [[ $FEAT_FRAMEWORK -eq 1 ]]; then
   for h in "${hooks[@]}"; do
     install -m755 "$HERE/config/omarchy/hooks/theme-set.d/$h" ~/.config/omarchy/hooks/theme-set.d/
   done
-  # Optional hooks kept disabled (vscode/cursor/windsurf/steam — see README)
+  # Optional hooks kept disabled (vscode/cursor/windsurf — see README)
   cp "$HERE"/config/omarchy/hooks/theme-set.d/*.disabled ~/.config/omarchy/hooks/theme-set.d/ 2>/dev/null || true
   install -m755 "$HERE"/local/bin/miroir-theme-apply ~/.local/bin/
   cp "$HERE"/config/systemd/user/miroir-theme-apply.path "$HERE"/config/systemd/user/miroir-theme-apply.service ~/.config/systemd/user/

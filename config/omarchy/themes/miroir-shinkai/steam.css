@@ -1,4 +1,0 @@
-/* Miroir shinkai — safe minimal Steam tint (Millennium).
-   Note: recolors agressifs retirés (ils cassaient des panels Steam). */
-::selection { background: #9d8ef0; color: #1a1830; }
-.ScrollbarThumb { background: #4a4670 !important; }

@@ -65,9 +65,11 @@ accent.
 ## Disabled-by-default hooks
 
 `theme-set.d/*.disabled`: VS Code / Cursor / Windsurf (heavy, redundant with Omarchy's native
-VS Code theming) and Steam (Adwaita-for-Steam regenerates a broken CSS intermittently →
-black rectangles; Steam's default dark theme is left alone). Rename to `.sh` + `chmod +x`
-to re-enable, at your own risk.
+VS Code theming). Rename to `.sh` + `chmod +x` to re-enable, at your own risk.
+
+**No Steam theming** — it was tried (Adwaita-for-Steam) and dropped: it intermittently
+regenerates a broken CSS that paints black rectangles over the Steam UI. Steam's default
+dark theme fits the themes fine.
 
 ## Good to know
 

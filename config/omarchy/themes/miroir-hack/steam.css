@@ -1,4 +1,0 @@
-/* Miroir hack — safe minimal Steam tint (Millennium).
-   Note: recolors agressifs retirés (ils cassaient des panels Steam). */
-::selection { background: #b84dff; color: #08070c; }
-.ScrollbarThumb { background: #3a3252 !important; }

@@ -1,4 +1,0 @@
-/* Miroir void — safe minimal Steam tint (Millennium).
-   Note: recolors agressifs retirés (ils cassaient des panels Steam). */
-::selection { background: #a97bf0; color: #0d0b1a; }
-.ScrollbarThumb { background: #453d63 !important; }

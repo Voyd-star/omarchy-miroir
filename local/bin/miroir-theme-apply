@@ -69,5 +69,5 @@ EOF
 command -v hyprctl >/dev/null 2>&1 && hyprctl reload >/dev/null 2>&1 || true
 fi
 
-# Discord/Steam/Typora/Spotify/GTK are themed by the framework in step 0.
+# Discord/Typora/Spotify/GTK are themed by the framework in step 0.
 exit 0
