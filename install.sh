@@ -198,6 +198,14 @@ if [[ $FEAT_SHIBUMI -eq 1 ]]; then
         | .bar.shibumi.workspace = {version:1, mode:"10", style:"aurora"}
         | .bar.shibumi.launcher = {mode:"icon", text:"shibumi", icon:"dragon"}' "$SJ" > "$tmp" && mv "$tmp" "$SJ" && note "Miroir preset applied (fit island, frost, aurora, accent=color05)"
     fi
+    # Bar plugins hosted by Shibumi's adapter
+    ask "  Tailscale widget (Omarchy first-party plugin)?" y \
+      && omarchy plugin enable omarchy.tailscale right 2>/dev/null && note "omarchy.tailscale enabled"
+    if ask "  GitHub widget (vendored, needs gh CLI logged in — notifications/PRs in the bar)?" y; then
+      mkdir -p "$HOME/.config/omarchy/plugins"
+      cp -r "$HERE/vendor/plugins/robzolkos.github" "$HOME/.config/omarchy/plugins/" \
+        && omarchy plugin enable robzolkos.github right 2>/dev/null && note "robzolkos.github enabled"
+    fi
   else
     note "! Shibumi install failed — stock bar left untouched (see vendor/shibumi-shell/docs/install.md)"
   fi

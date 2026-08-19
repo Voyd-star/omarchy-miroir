@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "robzolkos.github",
+  "name": "GitHub",
+  "version": "0.2.2",
+  "author": "Rob Zolkos",
+  "license": "MIT",
+  "description": "A keyboard-friendly GitHub inbox for notifications, reviews, your own pull requests, assigned issues, Actions, and repositories.",
+  "kinds": ["bar-widget"],
+  "activation": "on-demand",
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "GitHub",
+    "description": "Act on unread notifications and browse review requests, your authored pull requests with their check state, assigned issues, active or failed workflows, and repository metrics.",
+    "category": "Development",
+    "aliases": ["github", "octocat", "repos", "actions"],
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "refreshIntervalSec": 900,
+      "includeArchived": false,
+      "includeForks": false,
+      "repositoryScope": "Owned",
+      "includeArchivedReviewRequests": false,
+      "includeDraftReviewRequests": false,
+      "maxDisplayedRepos": 25,
+      "actionScanBehavior": "Recent repositories",
+      "actionScanRepoLimit": 15,
+      "actionScanConcurrency": 6,
+      "failedActionDays": 7,
+      "failedActionLimit": 20
+    },
+    "schema": [
+      { "key": "refreshIntervalSec", "type": "integer", "label": "Refresh interval (seconds)", "min": 60, "max": 3600, "step": 60, "defaultValue": 900 },
+      { "key": "includeArchived", "type": "boolean", "label": "Include archived repositories", "defaultValue": false },
+      { "key": "includeForks", "type": "boolean", "label": "Include forked repositories", "defaultValue": false },
+      { "key": "repositoryScope", "type": "enum", "label": "Repository scope", "options": ["Owned", "Owned and organizations"], "defaultValue": "Owned", "description": "List only repositories you own, or include organization repositories. This scope also supplies candidates for Actions scanning." },
+      { "key": "includeArchivedReviewRequests", "type": "boolean", "label": "Include review requests and issues from archived repositories", "defaultValue": false, "description": "An archived repository is read-only, so the request cannot be withdrawn and the work cannot be done." },
+      { "key": "includeDraftReviewRequests", "type": "boolean", "label": "Include review requests on drafts", "defaultValue": false, "description": "Draft pull requests are not ready for review, but some teams do ask for early feedback on them." },
+      { "key": "maxDisplayedRepos", "type": "integer", "label": "Maximum displayed repositories", "min": 10, "max": 500, "step": 5, "defaultValue": 25, "description": "Caps rendered repository rows while search and filtering continue to use the complete fetched list." },
+      { "key": "actionScanBehavior", "type": "enum", "label": "Actions scan", "options": ["Off", "Recent repositories", "All repositories"], "defaultValue": "Recent repositories", "description": "Scan no repositories, a capped set of recent repositories, or every repository in the configured scope. All repositories can use substantial API capacity with organization scope." },
+      { "key": "actionScanRepoLimit", "type": "integer", "label": "Recent repository scan limit", "min": 5, "max": 200, "step": 5, "defaultValue": 15 },
+      { "key": "actionScanConcurrency", "type": "integer", "label": "Actions scan concurrency", "min": 1, "max": 12, "step": 1, "defaultValue": 6 },
+      { "key": "failedActionDays", "type": "integer", "label": "Failed Actions window (days)", "min": 1, "max": 30, "step": 1, "defaultValue": 7 },
+      { "key": "failedActionLimit", "type": "integer", "label": "Maximum failed Actions", "min": 1, "max": 100, "step": 5, "defaultValue": 20 }
+    ]
+  }
+}

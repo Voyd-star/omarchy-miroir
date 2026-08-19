@@ -72,7 +72,11 @@ Omarchy Quattro's native shell process. It is **vendored** in
 installer never pulls live upstream code, so a compromised upstream push can't
 reach your machine. The installer sets the bar accent to the semantic role
 `color05` — the Miroir accent — so every theme switch recolors the bar
-automatically. Uninstall/restore the stock bar any time:
+automatically. The installer also offers two bar plugins hosted by Shibumi's
+adapter: **Tailscale** (Omarchy's first-party plugin) and **GitHub**
+(notifications/PRs via your logged-in `gh` CLI — vendored & pinned in
+`vendor/plugins/`, audited: auth fully delegated to `gh`, tokens redacted from
+error output). Uninstall/restore the stock bar any time:
 
 ```bash
 cd vendor/shibumi-shell && ./scripts/shibumi-suite uninstall --yes

@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install --yes --no-install-recommends jq
+
+      - name: Validate manifest
+        run: jq empty manifest.json
+
+      - name: Run helper tests
+        run: tests/helper-test.sh
+
+      - name: Run panel source tests
+        run: tests/panel-source-test.sh
+
+      - name: Run service source tests
+        run: tests/service-source-test.sh
