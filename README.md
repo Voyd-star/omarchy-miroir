@@ -28,6 +28,7 @@ The installer is **interactive** — it asks per feature and only touches what y
 | Theme(s) | Copies the theme into `~/.config/omarchy/themes/` (native Omarchy theming: terminal, waybar, mako, walker, btop, neovim, hyprlock, VS Code…) |
 | Hyprland look-n-feel | Window motions/deco + border gradient & shadow glow that follow the theme accent (your current `looknfeel` is backed up) |
 | Wallpaper rotation | systemd user timer cycles the theme's `backgrounds/` hourly |
+| Shibumi bar | [HANCORE's Shibumi Shell](https://github.com/HANCORE-linux/Shibumi-Shell) (native Quattro bar + 24-plugin suite), **vendored & pinned**, accent wired to the theme accent (Omarchy 4.x only) |
 | Theming framework | Hook framework re-theming apps on every theme change (`~/.config/omarchy/hooks/theme-set.d/`) |
 | ├─ Discord | Vesktop + base16 theme generated from the palette (`Ctrl+R` to reload) |
 | ├─ Spotify | spicetify skin with a **personality per theme** + 3 toggleable modes: **Zen** `Ctrl+Alt+Z`, **Ambience** `Ctrl+Alt+A` (cover-art glow, on by default), **Vinyl** `Ctrl+Alt+V` (spinning cover) |
@@ -61,6 +62,21 @@ omarchy-theme-set "Miroir Hack"    # or Void / Grimoire / Shinkai
 variant: `looknfeel.lua` (4.x, lua config) or `looknfeel.conf` (3.x, hyprlang). Both source a
 live `miroir-theme.{lua,conf}` regenerated on each theme change so borders/shadows track the
 accent.
+
+## Shibumi bar (vendored)
+
+The bar is [Shibumi Shell](https://github.com/HANCORE-linux/Shibumi-Shell) by
+HANCORE — the successor of QS Rise, running as a plugin suite **inside**
+Omarchy Quattro's native shell process. It is **vendored** in
+`vendor/shibumi-shell/` at a pinned, audited commit (see its `VENDOR.md`): the
+installer never pulls live upstream code, so a compromised upstream push can't
+reach your machine. The installer sets the bar accent to the semantic role
+`color05` — the Miroir accent — so every theme switch recolors the bar
+automatically. Uninstall/restore the stock bar any time:
+
+```bash
+cd vendor/shibumi-shell && ./scripts/shibumi-suite uninstall --yes
+```
 
 ## Disabled-by-default hooks
 

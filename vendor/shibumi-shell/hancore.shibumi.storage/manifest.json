@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "hancore.shibumi.storage",
+  "name": "Shibumi Storage",
+  "version": "0.1.1-beta.8",
+  "author": "HANCORE",
+  "license": "MIT",
+  "description": "Read-only root usage and physical drive inventory.",
+  "kinds": ["bar-widget", "service"],
+  "keepLoaded": true,
+  "entryPoints": {
+    "barWidget": "BarWidget.qml",
+    "service": "Service.qml"
+  },
+  "barWidget": {
+    "displayName": "Shibumi Storage",
+    "description": "Filesystem usage and read-only removable media inventory",
+    "category": "System",
+    "defaultSection": "right",
+    "allowMultiple": false
+  },
+  "x-shibumi": {
+    "suiteId": "hancore.shibumi",
+    "bundle": "default",
+    "role": "G18",
+    "requires": [],
+    "recommends": []
+  }
+}

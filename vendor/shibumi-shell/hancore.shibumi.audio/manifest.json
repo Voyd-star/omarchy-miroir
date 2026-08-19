@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "hancore.shibumi.audio",
+  "name": "Shibumi Audio",
+  "version": "0.1.1-beta.8",
+  "author": "HANCORE",
+  "license": "MIT",
+  "description": "Shibumi audio presentation over Omarchy's PipeWire owner.",
+  "kinds": [
+    "bar-widget",
+    "service"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "barWidget": "BarWidget.qml",
+    "service": "Service.qml"
+  },
+  "barWidget": {
+    "displayName": "Shibumi audio",
+    "description": "Volume, mute, microphone, devices, and application streams",
+    "category": "Audio",
+    "defaultSection": "left",
+    "allowMultiple": false
+  },
+  "x-shibumi": {
+    "suiteId": "hancore.shibumi",
+    "bundle": "default",
+    "role": "G6",
+    "capabilities": ["audio"],
+    "preferredRegion": "left",
+    "requires": [],
+    "recommends": []
+  }
+}

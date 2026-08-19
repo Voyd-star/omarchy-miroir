@@ -50,7 +50,7 @@ pkg_add_aur() {
 
 omarchy_major="$(omarchy-version 2>/dev/null | grep -oE '[0-9]+' | head -1)"; : "${omarchy_major:=3}"
 
-FEAT_HYPR=0 FEAT_ROTATE=0 FEAT_FRAMEWORK=0
+FEAT_HYPR=0 FEAT_ROTATE=0 FEAT_FRAMEWORK=0 FEAT_SHIBUMI=0
 FEAT_DISCORD=0 FEAT_SPOTIFY=0 FEAT_RAZER=0 FEAT_TMUX=0 FEAT_EXTRA_HOOKS=0
 
 # ── 1. Themes ────────────────────────────────────────────────────────────────
@@ -99,6 +99,13 @@ if ask "Multi-app theming framework (re-themes apps automatically on every theme
   ask "  ├─ Razer keyboard LED = theme accent (installs openrazer + polychromatic)?" n && FEAT_RAZER=1
   ask "  ├─ tmux statusbar colors from the palette?" y && FEAT_TMUX=1
   ask "  └─ Extra app hooks: GTK, Qt6, fish, fzf, firefox, zen, qutebrowser, zed, cava, typora, superfile, vicinae, heroic, nwg-dock (each no-ops if the app isn't installed)?" y && FEAT_EXTRA_HOOKS=1
+fi
+
+# ── 5. Shibumi bar (Omarchy Quattro only) ──────────────────────────────────
+if [[ "$omarchy_major" -ge 4 ]]; then
+  if ask "Shibumi bar (vendored HANCORE plugin suite — replaces the stock Quattro bar, accent follows the theme)?" y; then
+    FEAT_SHIBUMI=1
+  fi
 fi
 
 # ── Deploy ──────────────────────────────────────────────────────────────────
@@ -176,6 +183,23 @@ if [[ $FEAT_SPOTIFY -eq 1 ]]; then
     spicetify backup apply 2>/dev/null || note "(run 'spicetify backup apply' after launching Spotify once)"
   else
     note "(Spotify not found in /opt/spotify — install it, then re-run install.sh)"
+  fi
+fi
+
+if [[ $FEAT_SHIBUMI -eq 1 ]]; then
+  say "Shibumi bar (vendored, pinned — see vendor/shibumi-shell/VENDOR.md)"
+  pkg_add python jq curl networkmanager power-profiles-daemon upower xdg-utils libnotify wl-clipboard ttf-material-symbols-variable ttf-jetbrains-mono-nerd-basic noto-fonts-cjk adwaita-fonts
+  if (cd "$HERE/vendor/shibumi-shell" && ./scripts/shibumi-suite install --yes); then
+    # Miroir preset — accent is a semantic role (color05 = each theme's accent),
+    # floating "fit" island, frosted glass, soft shadow, aurora workspaces.
+    SJ="$HOME/.config/omarchy/shell.json"
+    if [[ -f "$SJ" ]] && command -v jq >/dev/null; then
+      tmp=$(mktemp) && jq '.bar.shibumi.presentation += {accent:"color05", shadow:true, frost:true, radius:"large", shellStyle:"fit", v2ShellStyle:"fit"}
+        | .bar.shibumi.workspace = {version:1, mode:"10", style:"aurora"}
+        | .bar.shibumi.launcher = {mode:"icon", text:"shibumi", icon:"dragon"}' "$SJ" > "$tmp" && mv "$tmp" "$SJ" && note "Miroir preset applied (fit island, frost, aurora, accent=color05)"
+    fi
+  else
+    note "! Shibumi install failed — stock bar left untouched (see vendor/shibumi-shell/docs/install.md)"
   fi
 fi
 

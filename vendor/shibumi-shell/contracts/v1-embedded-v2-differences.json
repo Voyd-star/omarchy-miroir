@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "referenceRepository": "https://github.com/HANCORE-linux/quickshell-dots",
+  "referenceRevision": "d0896fc532a216b281951157563ff34092b91a0a",
+  "referenceBaseline": "contracts/baselines/quickshell-dots-d0896fc-v2-deec8103.json",
+  "referenceRootId": "v1EmbeddedV2",
+  "standaloneRootId": "v2",
+  "standaloneOnly": [
+    {
+      "source": "shell.qml",
+      "reason": "The embedded variant is hosted by V1 VariantHost instead of a second ShellRoot.",
+      "implementation": ["hancore.shibumi.bar/Bar.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml"]
+    }
+  ],
+  "differences": [
+    {
+      "source": "BarSlot.qml",
+      "impact": "connected-panel-seam-readiness",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "Theme.qml",
+      "impact": "quattro-service-detection-connected-panel-readiness-and-workspace-label",
+      "decision": "adapt-to-first-party-services-and-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.status/Service.qml", "hancore.shibumi.bar/Bar.qml", "hancore.shibumi.workspaces/BarWidget.qml"],
+      "evidence": ["tests/status-plugin-regression.sh", "tests/bar-host-registry-smoke.qml", "tests/workspaces-plugin-smoke.qml"]
+    },
+    {
+      "source": "modules/CloudflareSpeedTest.qml",
+      "impact": "whitespace-only",
+      "decision": "equivalent",
+      "implementation": ["hancore.shibumi.network/Service.qml"],
+      "evidence": ["tests/network-plugin-regression.sh"]
+    },
+    {
+      "source": "modules/ConnectedPanelSurface.qml",
+      "impact": "stale-and-unmapped-connected-panel-geometry",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "modules/MprisWidget.qml",
+      "impact": "cava-process-lifecycle",
+      "decision": "adapt-safer",
+      "implementation": ["hancore.shibumi.media/Service.qml", "hancore.shibumi.media/BarWidget.qml"],
+      "evidence": ["tests/audio-media-plugins-regression.sh", "tests/media-widget-smoke.qml"]
+    },
+    {
+      "source": "modules/WorkspaceWidget.qml",
+      "impact": "frame-and-aurora-streak-presentations",
+      "decision": "port-both-alongside-standalone-styles",
+      "implementation": ["hancore.shibumi.workspaces/BarWidget.qml", "hancore.shibumi.workspaces/WorkspaceService.qml", "hancore.shibumi.control-center/BarFunctionsPage.qml"],
+      "evidence": ["tests/workspaces-plugin-regression.sh", "tests/workspaces-plugin-smoke.qml", "tests/shibumi-config-regression.qml"]
+    },
+    {
+      "source": "panels/AiUsagePanel.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "panels/ArchUpdaterPanel.qml",
+      "impact": "omarchy-update-owner-adapter-and-connected-panel-lifecycle",
+      "decision": "adapt-to-quattro-owner-and-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.update-center/Service.qml", "hancore.shibumi.update-center/UpdateCenterPanel.qml"],
+      "evidence": ["tests/update-center-regression.sh", "tests/update-center-package-regression.sh"]
+    },
+    {
+      "source": "panels/BatteryPanel.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "panels/BluetoothPanel.qml",
+      "impact": "quattro-bluetooth-controls-and-connected-panel-ownership",
+      "decision": "replace-hidden-ui-owner-with-native-shibumi-adapter",
+      "implementation": ["hancore.shibumi.bluetooth/Service.qml", "hancore.shibumi.bluetooth/BluetoothPanel.qml", "hancore.shibumi.bar/Bar.qml"],
+      "evidence": ["tests/bluetooth-plugin-regression.sh", "tests/bluetooth-plugin-smoke.qml", "tests/bar-host-registry-smoke.qml"]
+    },
+    {
+      "source": "panels/BrightnessPanel.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "panels/CalendarPopup.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "panels/ControlPanel.qml",
+      "impact": "active-host-switch-guards-frame-label-and-connected-panel-ownership",
+      "decision": "port-and-adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.control-center/HostIdentity.js", "hancore.shibumi.control-center/ControlCenterPanel.qml", "hancore.shibumi.control-center/BarFunctionsPage.qml"],
+      "evidence": ["tests/control-center-regression.sh", "tests/control-center-smoke.qml"]
+    },
+    {
+      "source": "panels/CpuPanel.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "panels/GpuPanel.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "panels/MemoryPanel.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "panels/MprisPanel.qml",
+      "impact": "cava-process-lifecycle-and-connected-panel-ownership",
+      "decision": "adapt-safer-and-use-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.media/Service.qml", "hancore.shibumi.media/MediaPanel.qml"],
+      "evidence": ["tests/audio-media-plugins-regression.sh", "tests/media-plugin-smoke.qml"]
+    },
+    {
+      "source": "panels/NetworkPanel.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "panels/NotificationPanel.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "panels/PowerProfilePanel.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "panels/StoragePanel.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "panels/ThermalsPanel.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "panels/TrayPanel.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "panels/VolumePanel.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "panels/WeatherPanel.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    },
+    {
+      "source": "panels/WorkspacePanel.qml",
+      "impact": "connected-panel-owner-lifecycle",
+      "decision": "adapt-to-owner-keyed-panel-coordinator",
+      "implementation": ["hancore.shibumi.bar/Bar.qml", "hancore.shibumi.bar/core/WidgetSlot.qml", "shared/presentation/ShibumiPanel.qml"],
+      "evidence": ["tests/bar-host-registry-smoke.qml", "tests/panel-surface-smoke.qml"]
+    }
+  ]
+}
